@@ -51,11 +51,25 @@ with open(budget_csv, newline='') as csvfile:
     average_change = sum(monthly_change) / len(monthly_change)
     print(average_change)
 
+    # Greatest increase in profits over entire period
+    greatest_increase = max(monthly_change)
+    
+    # Retrieve index of month with greatest increase
+    j = monthly_change.index(greatest_increase)
+    greatest_increase_month = total_months[j+1]
 
-        # Greatest increase in profits over entire period
+    # Greatest decrease in losses over entire period
+    greatest_decrease = min(monthly_change)
 
-        #print(total_months)
-        #print(net_profit_loss)
-        
+    # Retrieve index of month with greatest decrease
+    k = monthly_change.index(greatest_decrease)
+    greatest_decrease_month = total_months[k+1]
 
-
+    # Print results
+    print("Financial Analysis")
+    print("----------------------------")
+    print(f'Total Months: {len(total_months)}')
+    print(f'Total: {net_profit_loss}')
+    print(f'Average Change ${average_change}')
+    print(f'Greatest Increase in Profits: {greatest_increase_month} (${greatest_increase})')
+    print(f'Greatest Decrease in Profits: {greatest_decrease_month} (${greatest_decrease})')
