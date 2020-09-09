@@ -43,7 +43,7 @@ with open(budget_csv, newline='') as csvfile:
         monthly_change.append(monthly_diff)
 
     # Average of the changes in profit/losses over entire period
-    average_change = sum(monthly_change) / len(monthly_change)
+    average_change = round(sum(monthly_change) / len(monthly_change), 2)
 
     # Greatest increase in profits over entire period
     greatest_increase = max(monthly_change)
