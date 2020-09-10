@@ -32,10 +32,8 @@ with open(election_csv, newline='') as csvfile:
     
     # Print total number of votes
     total_votes = len(voter_id)
-    print(total_votes)
 
-    # Complete list of candidates who received votes
-    # Se initial value of i to 0
+    # Run conditionals to determine each candidate's vote number
     for candidate in candidates:
         if candidate == "Khan":
             khan.append(candidates)
@@ -53,19 +51,31 @@ with open(election_csv, newline='') as csvfile:
             otooley.append(candidates)
             otooley_votes = len(otooley)
 
-    print(khan_votes)
-    print(correy_votes)
-    print(li_votes)
-    print(otooley_votes)
-
     # Percentage of votes each candidate won
     khan_votes_percentage = round(((len(khan) / total_votes) * 100), 3)
     correy_votes_percentage = round(((len(correy) / total_votes) * 100), 3)
     li_votes_percentage = round(((len(li) / total_votes) * 100), 3)
     otooley_votes_percentage = round(((len(otooley) / total_votes) * 100), 3)
 
-    print(khan_votes_percentage)
-    print(correy_votes_percentage)
-    print(li_votes_percentage)
-    print(otooley_votes_percentage)
-
+    # Conditionals to determine winner of the election based on popular vote
+    if khan_votes_percentage > max(correy_votes_percentage, li_votes_percentage, otooley_votes_percentage):
+        winner = "Khan"
+    elif correy_votes_percentage > max(khan_votes_percentage, li_votes_percentage, otooley_votes_percentage):
+        winner = "Correy"
+    elif li_votes_percentage > max(khan_votes_percentage, correy_votes_percentage, otooley_votes_percentage):
+        winner = "Li"
+    else:
+        winner = "O'Tooley"
+    
+    # Print Results
+    print("Election Results")
+    print("-------------------------")
+    print(f'Total Votes: {total_votes}')
+    print("-------------------------")
+    print(f'Khan: {khan_votes_percentage}% ({khan_votes})')
+    print(f'Correy: {correy_votes_percentage}% ({correy_votes})')
+    print(f'Li: {li_votes_percentage}% ({li_votes})')
+    print(f"O'Tooley: {otooley_votes_percentage}% ({otooley_votes})")
+    print("-------------------------")
+    print(f'Winner: {winner}')
+    print("-------------------------")
