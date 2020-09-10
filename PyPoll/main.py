@@ -1,5 +1,5 @@
-#PyPoll
-#Import modules
+# PyPoll
+# Import modules
 import os
 import csv
 
