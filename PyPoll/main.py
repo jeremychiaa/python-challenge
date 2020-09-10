@@ -68,14 +68,23 @@ with open(election_csv, newline='') as csvfile:
         winner = "O'Tooley"
     
     # Print Results
-    print("Election Results")
-    print("-------------------------")
-    print(f'Total Votes: {total_votes}')
-    print("-------------------------")
-    print(f'Khan: {khan_votes_percentage}% ({khan_votes})')
-    print(f'Correy: {correy_votes_percentage}% ({correy_votes})')
-    print(f'Li: {li_votes_percentage}% ({li_votes})')
-    print(f"O'Tooley: {otooley_votes_percentage}% ({otooley_votes})")
-    print("-------------------------")
-    print(f'Winner: {winner}')
-    print("-------------------------")
+    result = ("Election Results" + "\n"
+    "-------------------------" + "\n"
+    f'Total Votes: {total_votes}' + "\n"
+    "-------------------------" + "\n"
+    f'Khan: {khan_votes_percentage}% ({khan_votes})' + "\n"
+    f'Correy: {correy_votes_percentage}% ({correy_votes})' + "\n"
+    f'Li: {li_votes_percentage}% ({li_votes})' + "\n"
+    f"O'Tooley: {otooley_votes_percentage}% ({otooley_votes})" + "\n"
+    "-------------------------" + "\n"
+    f'Winner: {winner}' + "\n"
+    "-------------------------")
+
+    print(result)
+
+    # Results output file path
+    txtfile_path = os.path.join(r'C:\Users\jerem\Desktop\REPOS\python-challenge\PyPoll\Analysis\output.txt')
+    
+    # Write results into text file
+    with open(txtfile_path, "w") as txt_file:
+        txt_file.write(result)

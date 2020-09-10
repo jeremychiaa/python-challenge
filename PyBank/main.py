@@ -60,10 +60,19 @@ with open(budget_csv, newline='') as csvfile:
     greatest_decrease_month = total_months[k+1]
 
     # Print results
-    print("Financial Analysis")
-    print("----------------------------")
-    print(f'Total Months: {len(total_months)}')
-    print(f'Total: {net_profit_loss}')
-    print(f'Average Change ${average_change}')
-    print(f'Greatest Increase in Profits: {greatest_increase_month} (${greatest_increase})')
-    print(f'Greatest Decrease in Profits: {greatest_decrease_month} (${greatest_decrease})')
+    result = ("Financial Analysis" + "\n"
+    "----------------------------" + "\n"
+    f'Total Months: {len(total_months)}' + "\n"
+    f'Total: {net_profit_loss}' + "\n"
+    f'Average Change ${average_change}' + "\n"
+    f'Greatest Increase in Profits: {greatest_increase_month} (${greatest_increase})' + "\n"
+    f'Greatest Decrease in Profits: {greatest_decrease_month} (${greatest_decrease})')
+
+    print(result)
+
+    # Results output file path
+    txtfile_path = os.path.join(r'C:\Users\jerem\Desktop\REPOS\python-challenge\PyBank\Analysis\output.txt')
+    
+    # Write results into text file
+    with open(txtfile_path, "w") as txt_file:
+        txt_file.write(result)
